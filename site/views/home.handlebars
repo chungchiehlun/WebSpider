@@ -1,0 +1,27 @@
+<div class="uk-grid">
+  <div class="uk-width-2-3 uk-container-center">
+    <h2>高雄日本廉航票價查詢服務</h2>
+    <div id="message" class="uk-alert">Message</div>
+    <form class="uk-form">
+      <select id="des" class="uk-button uk-form-select" data-uk-form-select>>
+        <option value="" disabled selected>選擇目的地</option>
+        <option value="KIX">關西機場</option>
+        <option value="NRT">成田機場</option>
+      </select>
+      <input id="depDate" placeholder="選擇出發日期">
+      <input id="retDate" placeholder="選擇回程日期">
+      <button id="enter" class="uk-button uk-button-primary" type="button">Search</button>
+    </form>
+    <table class="uk-table uk-table-striped">
+      <caption>Search Result</caption>
+      <thead>
+        <tr>
+          <th>航空公司</th>
+          <th>去程票價</th>
+          <th>回程票價</th>
+        </tr>
+      </thead>
+      <tbody id="SearchResult"></tbody>
+    </table>
+</div>
+</div>

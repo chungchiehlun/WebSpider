@@ -1,0 +1,23 @@
+{
+  "name": "crawler",
+  "version": "0.0.0",
+  "authors": [
+    "chungchiehlun <wuceh14678@kdanmobile.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": [],
+  "overrides": {},
+  "dependencies": {
+    "uikit": "~2.22.0"
+  }
+}
