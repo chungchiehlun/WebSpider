@@ -7,6 +7,7 @@
 * 用 nodejs 寫出一個爬蟲 , 幫我們查尋機票價錢
 * 目標： [香草航空訂票頁面](https://www.vanilla-air.com/reservation/ibe/ibe/booking)
 * 小技巧 ：用 chrome 開發工具研究瀏覽器與 server 的 http request ＆response  ,  以及用 postman 測試 http request
+
 #### Dependencies
 > Third-party <br>
 > [Cheerio](https://github.com/cheeriojs/cheerio) : 與 jQuery 相似 , 提供 DOM 操作方法 , 方便我們解析抓到的頁面 <br>
@@ -15,6 +16,12 @@
 > [Https](https://nodejs.org/api/https.html) ： 使用 https.request 像 server 發出請求取得頁面<br>
 > [Querystring](https://nodejs.org/api/querystring.html) ：使用 querystring.stringify 將我們的表單資料 json 包裝成 server可解讀的形式<br>
 > [File System](https://nodejs.org/api/fs.html) : 使用 fs.writeFile 將 server 端回傳的頁面存在本地 <br>
+
+#### Basic Install
+```npm install```
+
+#### Run
+```node demo.js```
 
 
 ## Site
