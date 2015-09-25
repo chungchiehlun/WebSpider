@@ -86,9 +86,6 @@ module.exports = function(cb) {
 
       res.on('end', function() {
         var html = JSON.parse(body);
-        // fs.writeFile('craw.html', html, function(err) {
-        //   if (err) return console.log(err);
-        // });
         parse(html);
       });
     })
@@ -99,14 +96,15 @@ module.exports = function(cb) {
   function parse(body) {
     var peachResult = {};
     $ = cheerio.load(body);
+
     peachResult['DeparturePrice'] = (function(){
-      var price = $('label[for="optOutward1_1"]').text();
-      return (!(price === 'Full')|| !(price === ''))?'No Tickets.':price.replace(/[^0-9]/g, "")+' NTD';
+      var price = $('label[for="optOutward1_1"]').text().replace(/[^0-9]/g, "");
+      return ((price === 'Full') || (price === ''))?'No Tickets.':price.replace(/[^0-9]/g, "")+' NTD';
     })();
 
     peachResult['ReturnPrice'] = (function(){
-      var price = $('label[for="optReturn1_1"]').text();
-      return (!(price === 'Full')|| !(price === ''))?'No Tickets.':price.replace(/[^0-9]/g, "")+' NTD';
+      var price = $('label[for="optReturn1_1"]').text().replace(/[^0-9]/g, "");
+      return ((price === 'Full') || (price === ''))?'No Tickets.':price.replace(/[^0-9]/g, "")+' NTD';
     })();
 
     cb.response(_.assign({}, {peach : peachResult}));

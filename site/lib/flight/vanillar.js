@@ -90,9 +90,6 @@ module.exports = function(cb) {
       });
 
       res.on('end', function() {
-        // fs.writeFile('craw.html', body, function(err) {
-        //   if (err) return console.log(err);
-        // });
         parse(body);
       });
     })
