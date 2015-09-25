@@ -18,6 +18,8 @@
 > [File System](https://nodejs.org/api/fs.html) : 使用 fs.writeFile 將 server 端回傳的頁面存在本地 <br>
 
 #### Basic Install
+```cd spider```
+<br>
 ```npm install```
 
 #### Run
@@ -34,6 +36,8 @@
 * 前端使用 jquery 及 uikit 完成簡單的介面
 
 #### Basic Install
+```cd site```
+<br>
 ```npm install```
 <br>
 ```bower install```
@@ -41,7 +45,7 @@
 #### Run
 ```npm start```
 
-#### link to http://localhost:3030/  ,  Enjoy !!
+#### Go to http://localhost:3030/  ,  Enjoy !!
 
 ## Other
 如果想一起讓這個專案更強大或者發現任何問題 , 歡迎 pull request 或者聯繫我
