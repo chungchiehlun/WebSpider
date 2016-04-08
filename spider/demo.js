@@ -3,6 +3,11 @@ var fs = require('fs');
 var querystring = require('querystring');
 var cheerio = require('cheerio');
 
+var DATE = {
+  departure: '09-Oct-2016',
+  return: '20-Oct-2016'
+};
+
 var FormData = querystring.stringify({
   guid: "",
   screenId: "BKG001",
@@ -15,7 +20,7 @@ var FormData = querystring.stringify({
   tripType: "RT",
   origin: "KHH",
   destination: "NRT",
-  travelDate: ["14-Oct-2015", "21-Dec-2015"],
+  travelDate: [DATE.departure, DATE.return],
   adults: 1,
   children: 0,
   infants: 0,
@@ -85,9 +90,9 @@ function POSTRequest() {
     });
 
     res.on('end', function() {
-      fs.writeFile('craw.html', body, function(err) {
-        if (err) return console.log(err);
-      });
+      // fs.writeFile('craw.html', body, function(err) {
+      //   if (err) return console.log(err);
+      // });
       parse(body);
     });
   })
@@ -97,11 +102,11 @@ function POSTRequest() {
 
 function parse(body) {
   $ = cheerio.load(body);
-  var DeparturePrice = $('#col_0_' + '14-Oct-2015').find('.lbl_bld').text().replace(/[^0-9]/g, "");
-  var ReturnPrice = $('#col_1_' + '21-Dec-2015').find('.lbl_bld').text().replace(/[^0-9]/g, "");
+  var DeparturePrice = $('#col_0_' + DATE.departure).find('.lbl_bld').text().replace(/[^0-9]/g, "");
+  var ReturnPrice = $('#col_1_' + DATE.return).find('.lbl_bld').text().replace(/[^0-9]/g, "");
 
-  console.log('查詢日期：' , '14-Oct-2015');
-  console.log('回程日期：' , '21-Dec-2015');
+  console.log('查詢日期：' , DATE.departure);
+  console.log('回程日期：' , DATE.return);
   console.log('去程票價：' , DeparturePrice);
   console.log('回程票價：' , ReturnPrice);
 }

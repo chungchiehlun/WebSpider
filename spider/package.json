@@ -7,6 +7,6 @@
   "author": "Chungchiehlun",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^0.19.0"
+    "cheerio": "^0.20.0"
   }
 }
