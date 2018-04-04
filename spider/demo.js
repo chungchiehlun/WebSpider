@@ -4,8 +4,8 @@ var querystring = require('querystring');
 var cheerio = require('cheerio');
 
 var DATE = {
-  departure: '09-Oct-2016',
-  return: '20-Oct-2016'
+  departure: '01-May-2018',
+  return: '07-May-2018'
 };
 
 var FormData = querystring.stringify({
@@ -61,9 +61,7 @@ var FetchCookie = https.request(Options['R1'], function(res) {
   // console.log('STATUS: ' + res.statusCode);
   // console.log('HEADERS: ' + JSON.stringify(res.headers));
 
-  var cookie = res['headers']['set-cookie'][0] + ';' + res['headers']['set-cookie'][1];
-
-  var JSESSIONID = res['headers']['set-cookie'][1].split(";")[0];
+  var JSESSIONID = res['headers']['set-cookie'][0].split(";")[0];
   var queryString = JSESSIONID.split("=")[1] + "?execution=e1s1&locale=en_US&llt=&agentId=";
 
   Options['R2']['headers']['Cookie'] = JSESSIONID;
@@ -102,11 +100,12 @@ function POSTRequest() {
 
 function parse(body) {
   $ = cheerio.load(body);
+
   var DeparturePrice = $('#col_0_' + DATE.departure).find('.lbl_bld').text().replace(/[^0-9]/g, "");
   var ReturnPrice = $('#col_1_' + DATE.return).find('.lbl_bld').text().replace(/[^0-9]/g, "");
 
   console.log('查詢日期：' , DATE.departure);
   console.log('回程日期：' , DATE.return);
-  console.log('去程票價：' , DeparturePrice);
-  console.log('回程票價：' , ReturnPrice);
+  console.log('去程票價：' , '日幣', DeparturePrice);
+  console.log('回程票價：' , '日幣', ReturnPrice);
 }
